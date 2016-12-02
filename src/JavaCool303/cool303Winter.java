@@ -2,14 +2,35 @@ package JavaCool303;
 import java.awt.Color;
 import java.awt.Font;
 
-public class cool303Winter extends cool303Theme {
+public class Cool303Winter{
+	protected Color bgColor; 
+	protected Color borderColor; 
+	protected Color titleColor;
+	protected Font titleFont; 
+	protected String icon; //NOTE do we need a getIcon? isn't it just the path to the icon which we place in our libe?
 	
-	public cool303Winter(){
-		bgColor = new Color(68,192,255);
-		borderColor = new Color(130,255,219);
-		titleColor = new Color(255,139,148);
-		titleFont = new Font("Monospaced", Font.BOLD, 14);
-		icon = "JavaCool303/images/snowman.png";
+	public Cool303Winter(Color bgColor, Color borderColor, Color titleColor, Font titleFont, String icon){
+		this.bgColor = bgColor; 
+		this.borderColor = borderColor;
+		this.titleColor = titleColor;
+		this.titleFont = titleFont; 
+		this.icon = icon; 
+	}
+	
+	public Color getBgColor() {
+		return bgColor;
+	}
+	public Color getBorderColor() {
+		return borderColor;
+	}
+	public Color getTitleColor() {
+		return titleColor;
+	}
+	public Font getTitleFont() {
+		return titleFont;
+	}
+	public String getIcon() {
+		return icon;
 	}
 
 }
