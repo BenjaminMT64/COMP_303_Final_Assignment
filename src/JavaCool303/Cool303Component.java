@@ -1,17 +1,15 @@
 package JavaCool303;
 
+import javax.swing.JComponent;
+
 public abstract class Cool303Component {
 	protected Cool303Theme aTheme; 
-	private int width;
-	private int height; 
-	
-	public Cool303Component(Cool303Theme aTheme, int width, int height){
+	private JComponent component;
+	 
+	public Cool303Component(Cool303Theme aTheme, JComponent myComponent){
 		this.aTheme = aTheme; 
-		this.width = width; 
-		this.height = height; 
+		this.component = myComponent; 
 	}
-	
-	public Cool303Component(){}
 	
 	public void setTheme(Cool303Theme selectedTheme){
 		this.aTheme = selectedTheme; 
