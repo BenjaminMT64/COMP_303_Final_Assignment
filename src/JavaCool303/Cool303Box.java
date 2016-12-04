@@ -103,7 +103,7 @@ public class Cool303Box extends Cool303Container {
 	/**
 	 * @return the aTheme
 	 */
-	public Cool303Theme getaTheme() {
+	public Cool303Theme getTheme() {
 		return aTheme;
 	}
 
