@@ -11,13 +11,8 @@ import java.util.*;
 
 public class Cool303Box extends Cool303Container {
 	private JPanel box;
-	private int rows;
-	private int cols; 
-	private int width;
-	private int height; 
 	private Cool303Theme aTheme; 
-	
-	private ArrayList<Cool303Component> displayableComponents;
+	private GridLayout myLayout = new GridLayout(5,4);
 	
 //	public cool303Box(cool303Theme aTheme, int rows, int cols){
 //		this.aTheme = aTheme;
@@ -25,17 +20,14 @@ public class Cool303Box extends Cool303Container {
 //		this.cols = cols;		
 //	}
 	
-	public Cool303Box(Cool303Theme aTheme, int rows, int cols, int width, int height){
-		super(aTheme, width, height);
-		this.box = new JPanel(); 
+	public Cool303Box(Cool303Theme aTheme, int rows, int cols){
+		super(rows, cols, aTheme);
+		box = new JPanel();
 		this.aTheme = aTheme; 
-		this.rows = rows;
-		this.cols = cols;
-		this.width = width;
-		this.height = height;
-		box.setLayout(new GridLayout(rows,cols));
-		box.setBackground(Color.blue);
-		setBoxSize(width,height);		
+		//myLayout = new GridLayout(rows, cols);
+		box.setLayout(myLayout);
+		//box.setBackground(Color.blue);
+		//setBoxSize(width,height);		
 	}
 	
 	//set size and check min requirements
@@ -48,18 +40,18 @@ public class Cool303Box extends Cool303Container {
 	}
 	
 	public void addComponent(Cool303Component c){
-		c.setTheme(this.aTheme);
-		displayableComponents.add(c);		
+		box.add(c.getSwingComponent());
+		//c.setTheme(this.aTheme);		
 	}
 	
-	public void removeAtIndex(int i){
-		displayableComponents.remove(i);
-	}
-	
-	public Cool303Component getComp(int i){
-		
-		return displayableComponents.get(i);
-	}
+//	public void removeAtIndex(int i){
+//		displayableComponents.remove(i);
+//	}
+//	
+//	public Cool303Component getComp(int i){
+//		
+//		return displayableComponents.get(i);
+//	}
 	
 	public void setTheme(Cool303Theme selectedTheme){
 		this.aTheme = selectedTheme; 
@@ -69,49 +61,42 @@ public class Cool303Box extends Cool303Container {
 	 * @return the box
 	 */
 	public JPanel getBox() {
-		return box;
+		return this.box;
 	}
 
-	/**
-	 * @return the rows
-	 */
-	public int getRows() {
-		return rows;
-	}
-
-	/**
-	 * @return the cols
-	 */
-	public int getCols() {
-		return cols;
-	}
-
-	/**
-	 * @return the width
-	 */
-	public int getWidth() {
-		return width;
-	}
-
-	/**
-	 * @return the height
-	 */
-	public int getHeight() {
-		return height;
-	}
+//	/**
+//	 * @return the rows
+//	 */
+//	public int getRows() {
+//		return rows;
+//	}
+//
+//	/**
+//	 * @return the cols
+//	 */
+//	public int getCols() {
+//		return cols;
+//	}
+//
+//	/**
+//	 * @return the width
+//	 */
+//	public int getWidth() {
+//		return width;
+//	}
+//
+//	/**
+//	 * @return the height
+//	 */
+//	public int getHeight() {
+//		return height;
+//	}
 
 	/**
 	 * @return the aTheme
 	 */
 	public Cool303Theme getTheme() {
 		return aTheme;
-	}
-
-	/**
-	 * @return the displayableComponents
-	 */
-	public ArrayList<Cool303Component> getDisplayableComponents() {
-		return displayableComponents;
 	}
 
 }

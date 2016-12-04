@@ -23,7 +23,12 @@ public class Cool303Theme {
 				
 	}
 	
-	
+	public Cool303Theme(){
+		this.bgColor = new Color(220, 237, 193); 
+		this.borderColor = new Color(255, 139, 148); 
+		this.titleColor = new Color(255, 139, 148);
+		this.titleFont = new Font("Monospaced", Font.BOLD, 14); 
+	}
 	
 	public Color getBgColor() {
 		return bgColor;

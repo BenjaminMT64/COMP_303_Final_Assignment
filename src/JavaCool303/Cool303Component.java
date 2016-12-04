@@ -4,21 +4,15 @@ import javax.swing.JComponent;
 
 public abstract class Cool303Component {
 	protected Cool303Theme theme; 
-	private JComponent component;
+	//private JComponent component;
 	 
-	public Cool303Component(Cool303Theme aTheme, JComponent myComponent){
+	public Cool303Component(Cool303Theme aTheme){
 		this.theme = aTheme; 
-		this.component = myComponent; 
+		//this.component = myComponent; 
 	}
 	
-	public void supplyJComponent(JComponent c) {
-		if (this.component == null) {
-			this.component = c;
-		}
-	}
-	
-	protected JComponent getJComponent() {
-		return this.component;
+	protected JComponent getSwingComponent() {
+		return null;
 	}
 	
 	public void setTheme(Cool303Theme selectedTheme){
