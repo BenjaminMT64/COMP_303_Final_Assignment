@@ -13,8 +13,9 @@ public class Cool303Box extends Cool303Container {
 	
 	public Cool303Box(Cool303Theme aTheme, int rows, int cols){
 		super(rows, cols, aTheme);
-		box = new JPanel(new GridLayout(rows, cols)); 
+		box = new JPanel(new GridLayout(rows, cols, 5, 5)); 
 		this.guiContainer = box;	
+		applyTheme();
 	}
 	
 	//set size and check min requirements
@@ -45,6 +46,11 @@ public class Cool303Box extends Cool303Container {
 	 * @return the box
 	 */
 	public JPanel getBox() {
+		return this.box;
+	}
+	
+	@Override
+	protected Component getSwingComponent() {
 		return this.box;
 	}
 

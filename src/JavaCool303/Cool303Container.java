@@ -18,7 +18,7 @@ public class Cool303Container extends Cool303Component{
 	//To be implemented later
 	//public Cool303Container(int rows, int cols, Cool303Theme theme, String name)
 	
-	public void addComponent(Cool303Component c, int row, int col) {
+	public void addComponent(Cool303Component c) {
 		c.setTheme(super.getTheme());
 		this.guiContainer.add(c.getSwingComponent());
 	}

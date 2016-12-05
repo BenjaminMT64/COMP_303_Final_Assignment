@@ -12,6 +12,7 @@ public class Cool303Button extends Cool303Component{
 	public Cool303Button(Cool303Theme myTheme){
 		super(myTheme);
 		this.button = new JButton();
+		applyTheme();
 	}
 	
 	public String getText(){

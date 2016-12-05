@@ -9,7 +9,7 @@ public abstract class Cool303Component {
 	 
 	public Cool303Component(Cool303Theme aTheme){
 		this.theme = aTheme; 
-		applyTheme();
+		//applyTheme();
 	}
 	
 	protected Component getSwingComponent() {
