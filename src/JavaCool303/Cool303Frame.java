@@ -8,7 +8,6 @@ public class Cool303Frame {
 	public Cool303Frame(){ 
 		myWindow = new JFrame(); 
 		myWindow.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		
 	}	
 	
 	public void makeFrame(){

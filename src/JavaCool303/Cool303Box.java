@@ -11,7 +11,7 @@ import java.util.*;
 
 public class Cool303Box extends Cool303Container {
 	private JPanel box;
-	private Cool303Theme aTheme; 
+	//private Cool303Theme aTheme; 
 	private GridLayout myLayout = new GridLayout(5,4);
 	
 //	public cool303Box(cool303Theme aTheme, int rows, int cols){
@@ -22,13 +22,10 @@ public class Cool303Box extends Cool303Container {
 	
 	public Cool303Box(Cool303Theme aTheme, int rows, int cols){
 		super(rows, cols, aTheme);
-		box = new JPanel();
-		this.aTheme = aTheme; 
-		//myLayout = new GridLayout(rows, cols);
-		box.setLayout(myLayout);
-		//box.setBackground(Color.blue);
-		//setBoxSize(width,height);		
+		box = new JPanel(new GridLayout(rows, cols)); 
+		this.guiContainer = box;	
 	}
+	
 	
 	//set size and check min requirements
 	private void setBoxSize(int width, int height){
@@ -39,10 +36,11 @@ public class Cool303Box extends Cool303Container {
 		}
 	}
 	
-	public void addComponent(Cool303Component c){
-		box.add(c.getSwingComponent());
-		//c.setTheme(this.aTheme);		
-	}
+//	public void addComponent(Cool303Component c){
+//		c.setTheme(super.getTheme());
+//		box.add(c.getSwingComponent());
+//		//c.setTheme(this.aTheme);		
+//	}
 	
 //	public void removeAtIndex(int i){
 //		displayableComponents.remove(i);
@@ -53,9 +51,9 @@ public class Cool303Box extends Cool303Container {
 //		return displayableComponents.get(i);
 //	}
 	
-	public void setTheme(Cool303Theme selectedTheme){
-		this.aTheme = selectedTheme; 
-	}
+//	public void setTheme(Cool303Theme selectedTheme){
+//		this.aTheme = selectedTheme; 
+//	}
 	
 	/**
 	 * @return the box
@@ -92,11 +90,11 @@ public class Cool303Box extends Cool303Container {
 //		return height;
 //	}
 
-	/**
-	 * @return the aTheme
-	 */
-	public Cool303Theme getTheme() {
-		return aTheme;
-	}
+//	/**
+//	 * @return the aTheme
+//	 */
+//	public Cool303Theme getTheme() {
+//		return aTheme;
+//	}
 
 }

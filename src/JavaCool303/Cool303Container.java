@@ -1,5 +1,6 @@
 package JavaCool303;
 
+import java.awt.Component;
 import java.awt.Container;
 import java.awt.GridLayout;
 import javax.swing.JPanel;
@@ -7,7 +8,7 @@ import javax.swing.JPanel;
 public class Cool303Container extends Cool303Component{
 	
 	private String title;
-	private Container guiContainer = new Container();
+	protected Container guiContainer = new Container();
 	private Cool303Theme containerTheme;
 	
 	public Cool303Container(int rows, int cols, Cool303Theme theme){
@@ -25,6 +26,14 @@ public class Cool303Container extends Cool303Component{
 	
 	public String getString(){
 		return this.title;
+	}
+	
+	protected Container setContainer(Cool303Container a){
+		this.guiContainer = (Container) a.getSwingComponent();
+	}
+	
+	protected Component getSwingComponent(){
+		return this.guiContainer;
 	}
 	
 	public void setString(String containerTitle){

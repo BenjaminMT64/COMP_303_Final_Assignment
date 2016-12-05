@@ -1,17 +1,18 @@
 package JavaCool303;
 
+import java.awt.Component;
+
 import javax.swing.JComponent;
 
-public abstract class Cool303Component {
+public abstract class Cool303Component extends JComponent{
 	protected Cool303Theme theme; 
-	//private JComponent component;
 	 
 	public Cool303Component(Cool303Theme aTheme){
 		this.theme = aTheme; 
 		//this.component = myComponent; 
 	}
 	
-	protected JComponent getSwingComponent() {
+	protected Component getSwingComponent() {
 		return null;
 	}
 	
