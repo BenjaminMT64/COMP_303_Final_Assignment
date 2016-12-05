@@ -23,7 +23,7 @@ public class DemoApp {
 					System.out.println(number);
 				}
 			});
-			myBox.addComponent(button);
+			//myBox.addComponent(button);
 		}
 
 		myWindow.add(myBox.getBox());

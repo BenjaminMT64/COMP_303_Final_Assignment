@@ -3,48 +3,72 @@ import java.awt.Color;
 import java.awt.Font;
 import java.io.IOException;
 import javax.imageio.ImageIO;
-import javax.swing.ImageIcon; 
+import javax.swing.ImageIcon;
+import javax.swing.border.Border; 
 
 
 public class Cool303Theme {
-	protected Color bgColor; 
-	protected Color borderColor; 
-	protected Color titleColor;
-	protected Font titleFont; 
-	protected String icon; //NOTE do we need a getIcon? isn't it just the path to the icon which we place in our libe? 
+	private Color boxColor;
+	private Border boxBorder;
 	
+	private Color componentColor;
+	private Border componentBorder;
+	private Font componentFont;
 	
-	public Cool303Theme(Color bgColor, Color borderColor, Color titleColor, Font titleFont, String icon){
-		this.bgColor = bgColor; 
-		this.borderColor = borderColor;
-		this.titleColor = titleColor;
-		this.titleFont = titleFont; 
-		this.icon = icon; 
-				
-	}
+	private Font titleFont;
 	
-	public Cool303Theme(){
-		this.bgColor = new Color(220, 237, 193); 
-		this.borderColor = new Color(255, 139, 148); 
-		this.titleColor = new Color(255, 139, 148);
-		this.titleFont = new Font("Monospaced", Font.BOLD, 14); 
+	public Cool303Theme(Color boxColor, Border boxBorder, Color componentColor, Border componentBorder,
+			Font componentFont, Font titleFont) {
+		this.boxColor = boxColor;
+		this.boxBorder = boxBorder;
+		this.componentColor = componentColor;
+		this.componentBorder = componentBorder;
+		this.componentFont = componentFont;
+		this.titleFont = titleFont;
 	}
-	
-	public Color getBgColor() {
-		return bgColor;
+
+	/**
+	 * @return the boxColor
+	 */
+	public Color getBoxColor() {
+		return boxColor;
 	}
-	public Color getBorderColor() {
-		return borderColor;
+
+	/**
+	 * @return the boxBorder
+	 */
+	public Border getBoxBorder() {
+		return boxBorder;
 	}
-	public Color getTitleColor() {
-		return titleColor;
+
+	/**
+	 * @return the componentColor
+	 */
+	public Color getComponentColor() {
+		return componentColor;
 	}
+
+	/**
+	 * @return the componentBorder
+	 */
+	public Border getComponentBorder() {
+		return componentBorder;
+	}
+
+	/**
+	 * @return the componentFont
+	 */
+	public Font getComponentFont() {
+		return componentFont;
+	}
+
+	/**
+	 * @return the titleFont
+	 */
 	public Font getTitleFont() {
 		return titleFont;
 	}
-	public String getIcon() {
-		return icon;
-	}
+
 	
 
 }
