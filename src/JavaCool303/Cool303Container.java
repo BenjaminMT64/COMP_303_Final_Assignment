@@ -16,7 +16,6 @@ import java.awt.GridLayout;
  */
 public class Cool303Container extends Cool303Component{
 	
-	private String title;
 	protected Container guiContainer = new Container();
 	
 	/**
