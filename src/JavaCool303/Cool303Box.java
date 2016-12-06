@@ -1,117 +1,89 @@
+// Aaron Gaba (Student ID: 260450580)
+// Benjamin Taubenblatt (Student ID: 260626105)
+
 package JavaCool303;
 
-import java.awt.Color;
 import java.awt.Component; 
 import java.awt.Dimension;
 import java.awt.GridLayout; 
-import javax.swing.BorderFactory; 
 import javax.swing.JPanel;
-import javax.swing.border.TitledBorder; 
-import java.util.*; 
 
+/**
+ * A Cool303Box is a visible container, which, by being a subclass of Cool303Container,
+ * can contain Cool303Components and Cool303Containers.
+ * 
+ * It is a wrapper class around JPanel.
+ *
+ */
 public class Cool303Box extends Cool303Container {
-	private JPanel box;
-	private int rows;
-	private int cols; 
-	private int width;
-	private int height; 
-	private Cool303Theme aTheme; 
+	private JPanel box; 
 	
-	private ArrayList<Cool303Component> displayableComponents;
-	
-//	public cool303Box(cool303Theme aTheme, int rows, int cols){
-//		this.aTheme = aTheme;
-//		this.rows = rows;
-//		this.cols = cols;		
-//	}
-	
-	public Cool303Box(Cool303Theme aTheme, int rows, int cols, int width, int height){
-		super(aTheme, width, height);
-		this.box = new JPanel(); 
-		this.aTheme = aTheme; 
-		this.rows = rows;
-		this.cols = cols;
-		this.width = width;
-		this.height = height;
-		box.setLayout(new GridLayout(rows,cols));
-		box.setBackground(Color.blue);
-		setBoxSize(width,height);		
+	/**
+	 * Constructs a new Cool303Box with its layout based upon Swing's Grid Layout
+	 * @param theme The Cool303Theme that all components within this container shall follow
+	 * @param rows Number of rows in the container's layout
+	 * @param cols Number of columns in the container's layout
+	 */
+	public Cool303Box(Cool303Theme theme, int rows, int cols){
+		super(rows, cols, theme);
+		box = new JPanel(new GridLayout(rows, cols, 5, 5)); 
+		
+		// Override the primitive AWT container with the JPanel
+		// as JPanel, itself, is a subclass of the AWT container.
+		this.guiContainer = box;	
+		
+		// Colorize the box and stylize the borders
+		applyTheme();
 	}
 	
-	//set size and check min requirements
-	private void setBoxSize(int width, int height){
-		if(box.getMinimumSize().width <= width && box.getMinimumSize().height <= height){ //if minimum size requirements 
-			Dimension size = new Dimension(); 
-			size.setSize(width, height); //set dimension size
-			box.setSize(size); //setting box dimension
+	/**
+	 * Given a specified height and width, the 'setBoxSize' method attempts to resize under
+	 * those given size constraints.  If the given constraints are too small (i.e., prevent
+	 * part of window to be seen), then constraints are ignored and the window unaffected.
+	 * 
+	 * @param height The new height of the window
+	 * @param width The new width of the window
+	 */
+	public void setBoxSize(int height, int width){
+		
+		if((box.getMinimumSize().width <= width) && (box.getMinimumSize().height <= height)){ 
+			Dimension newBoxSize = new Dimension(); 
+			newBoxSize.setSize(width, height); //set dimension size
+			box.setSize(newBoxSize); //setting box dimension
 		}
 	}
 	
-	public void addComponent(Cool303Component c){
-		c.setTheme(this.aTheme);
-		displayableComponents.add(c);		
+	/**
+	 * The 'getBoxSize' method returns the size of the JPanel that is Cool303Box is wrapped around
+	 * @return Height and width of the enclosed JPanel
+	 */
+	public Dimension getBoxSize() {
+		return box.getSize();
 	}
 	
-	public void removeAtIndex(int i){
-		displayableComponents.remove(i);
-	}
-	
-	public Cool303Component getComp(int i){
+	/**
+	 * With its given theme, the 'applyTheme' method will stylize the box's background color
+	 * and its border.  If the theme's box color and/or box border is not specified, then
+	 * the box will revert to the default color and/or border as specified by the Swing Look-and-Feel.
+	 */
+	public void applyTheme(){
+		if (theme.getBoxColor() != null) {
+			this.box.setBackground(theme.getBoxColor());
+		}
 		
-		return displayableComponents.get(i);
+		if (theme.getBoxBorder() != null) {
+			this.box.setBorder(theme.getBoxBorder());
+		}
 	}
 	
-	public void setTheme(Cool303Theme selectedTheme){
-		this.aTheme = selectedTheme; 
-	}
-	
 	/**
-	 * @return the box
+	 * This method returns the underlying JPanel, which is intended either for nesting
+	 * the JPanels or for retrieving the JPanel to be displayed in a Cool303Frame (a wrapper
+	 * for JFrame).
 	 */
-	public JPanel getBox() {
-		return box;
-	}
-
-	/**
-	 * @return the rows
-	 */
-	public int getRows() {
-		return rows;
-	}
-
-	/**
-	 * @return the cols
-	 */
-	public int getCols() {
-		return cols;
-	}
-
-	/**
-	 * @return the width
-	 */
-	public int getWidth() {
-		return width;
-	}
-
-	/**
-	 * @return the height
-	 */
-	public int getHeight() {
-		return height;
-	}
-
-	/**
-	 * @return the aTheme
-	 */
-	public Cool303Theme getaTheme() {
-		return aTheme;
-	}
-
-	/**
-	 * @return the displayableComponents
-	 */
-	public ArrayList<Cool303Component> getDisplayableComponents() {
-		return displayableComponents;
+	@Override
+	protected Component getSwingComponent() {
+		return this.box;
 	}
 
 }
